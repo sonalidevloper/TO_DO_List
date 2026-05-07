@@ -150,13 +150,3 @@ export function initAuth() {
   // Password strength meter
   regPw.addEventListener('input', () => renderStrength(regPw.value));
 }
-
-/* ── Logout (called from settings) ──────────────────────── */
-export function handleLogout() {
-  logoutUser();
-  // Clear form state
-  loginEmail.value = ''; loginPw.value = '';
-  regName.value = '';  regEmail.value = ''; regPw.value = '';
-  loginErr.textContent = ''; regErr.textContent = '';
-  showAuth();
-}
