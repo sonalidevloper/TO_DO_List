@@ -1,16 +1,3 @@
-/**
- * state.js — Centralized application state (no DOM access here).
- *
- * Architecture:
- *  - A single `state` object is the source of truth.
- *  - Mutation only happens through exported functions.
- *  - Every mutation calls `persist()` to sync to localStorage.
- *  - Consumers subscribe via `onChange()` and re-render on update.
- *
- * ES6+ features used: destructuring, spread, arrow functions,
- * template literals, functional array methods (map / filter / reduce).
- */
-
 import { Storage } from './storage.js';
 
 /* ── Types (JSDoc) ───────────────────────────────────────── */
