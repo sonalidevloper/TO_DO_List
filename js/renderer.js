@@ -1,11 +1,3 @@
-/**
- * renderer.js — Pure UI rendering layer.
- *
- * Receives state slices and mutates the DOM.
- * No state is owned here — this is a dumb "view" layer.
- * Uses template literals, destructuring, and functional methods.
- */
-
 import { todayStr, selectVisibleTasks, selectCounts, selectProgress } from './state.js';
 
 /* ── DOM element cache ───────────────────────────────────── */
