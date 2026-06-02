@@ -32,7 +32,8 @@ const pwStrength  = document.getElementById('pw-strength');
 const getAccounts = () => Storage.get('accounts', {});
 const saveAccounts = accs => Storage.set('accounts', accs);
 
-
+/** Very light email validator. */
+const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
 /** Hash-like obfuscation (NOT real crypto — demo only). */
 const obscure = str => btoa(str + ':taskflow');
