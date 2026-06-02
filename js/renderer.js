@@ -163,7 +163,22 @@ export function renderTaskList(state) {
   const { filter, sort } = state;
   const visible = selectVisibleTasks(state);
 
-  
+  // Update action-bar count label
+  const activeCnt = state.tasks.filter(t => !t.completed).length;
+  actionCount.textContent = `${activeCnt} task${activeCnt !== 1 ? 's' : ''} remaining`;
+
+  if (visible.length === 0) {
+    taskList.innerHTML = '';
+    emptyState.hidden  = false;
+    const copy = EMPTY_COPY[filter] ?? EMPTY_COPY.all;
+    emptyHeading.textContent = copy.h;
+    emptyBody.textContent    = copy.b;
+    return;
+  }
+
+  emptyState.hidden  = true;
+  taskList.innerHTML = visible.map(buildTaskHTML).join('');
+}
 
 /* ── Render: settings toggles ────────────────────────────── */
 export function renderSettings({ settings, theme, compact }) {
