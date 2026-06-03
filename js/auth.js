@@ -126,7 +126,13 @@ function handleRegister() {
   notify('Account created!', `Welcome to TaskFlow, ${name} 🎉`, 'success');
 }
 
-
+/* ── Bind events ─────────────────────────────────────────── */
+export function initAuth() {
+  // Tab clicks (both the tab buttons AND inline "switch" link-btns)
+  document.addEventListener('click', e => {
+    const tab = e.target.closest('[data-tab]');
+    if (tab && overlay.contains(tab)) switchTab(tab.dataset.tab);
+  });
 
   btnLogin.addEventListener('click', handleLogin);
   btnRegister.addEventListener('click', handleRegister);
