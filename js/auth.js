@@ -141,11 +141,7 @@ export function initAuth() {
   [loginEmail, loginPw].forEach(el => el.addEventListener('keydown', e => e.key === 'Enter' && handleLogin()));
   [regName, regEmail, regPw].forEach(el => el.addEventListener('keydown', e => e.key === 'Enter' && handleRegister()));
 
-  // Password visibility toggle
-  togglePw.addEventListener('click', () => {
-    loginPw.type = loginPw.type === 'password' ? 'text' : 'password';
-    togglePw.setAttribute('aria-label', loginPw.type === 'text' ? 'Hide password' : 'Show password');
-  });
+
 
   // Password strength meter
   regPw.addEventListener('input', () => renderStrength(regPw.value));
