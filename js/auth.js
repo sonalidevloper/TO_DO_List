@@ -147,9 +147,7 @@ export function initAuth() {
     togglePw.setAttribute('aria-label', loginPw.type === 'text' ? 'Hide password' : 'Show password');
   });
 
-  // Password strength meter
-  regPw.addEventListener('input', () => renderStrength(regPw.value));
-}
+  
 /* ── Logout (called from settings) ──────────────────────── */
 export function handleLogout() {
   logoutUser();
