@@ -38,7 +38,15 @@ const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 /** Hash-like obfuscation (NOT real crypto — demo only). */
 const obscure = str => btoa(str + ':taskflow');
 
-
+/** Compute password strength 0–4. */
+function strengthLevel(pw) {
+  let score = 0;
+  if (pw.length >= 6)              score++;
+  if (pw.length >= 10)             score++;
+  if (/[A-Z]/.test(pw))            score++;
+  if (/[0-9!@#$%^&*]/.test(pw))   score++;
+  return score;
+}
 
 /** Update the visual strength bar. */
 function renderStrength(pw) {
