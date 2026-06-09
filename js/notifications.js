@@ -34,9 +34,7 @@ export function notify(title, msg = '', type = 'info', duration = 3500) {
     el.addEventListener('animationend', () => el.remove(), { once: true });
   };
 
-  el.querySelector('button').addEventListener('click', dismiss);
-  TRAY.appendChild(el);
-
+  
   if (duration > 0) setTimeout(dismiss, duration);
   return dismiss; // callers can dismiss programmatically
 }
